@@ -1,0 +1,22 @@
+[
+    {
+        "TargetPort": 27017,
+        "PublishedPort": 27017,
+        "PublishMode": "host"
+    },
+    {
+        "TargetPort": 5432,
+        "PublishedPort": 5432,
+        "PublishMode": "host"
+    },
+    {
+        "TargetPort": 8123,
+        "PublishedPort": 8123,
+        "PublishMode": "host"
+    },
+    {
+        "TargetPort": 1433,
+        "PublishedPort": 1433,
+        "PublishMode": "host"
+    }
+]
