@@ -57,6 +57,6 @@ Then you can use them in your Traefik labels on your services.
 ...
 labels:
       - "traefik.enable=true"
-      - "traefik.tcp.routers.${UNIQUE_NAME}.entrypoints=database"
+      - "traefik.tcp.routers.${UNIQUE_NAME}.entrypoints=postgres"
 ...
 ```
