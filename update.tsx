@@ -43,7 +43,7 @@ export const initializeTraefik = async () => {
         process.exit(1);
     }
 
-    const imageName = "traefik:v2.5";
+    const imageName = "traefik:v3.0";
     const containerName = "dokploy-traefik";
     const basePorts = [
         {

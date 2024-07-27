@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -45,7 +45,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 var _a, _b;
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.initializeTraefik = exports.docker = exports.DYNAMIC_TRAEFIK_PATH = exports.MAIN_TRAEFIK_PATH = exports.BASE_PATH = void 0;
 var path = require('node:path');
 var fs = require('fs');
@@ -91,23 +91,23 @@ var initializeTraefik = function () { return __awaiter(void 0, void 0, void 0, f
                     console.error("error verifying paths");
                     process.exit(1);
                 }
-                imageName = "traefik:v2.5";
+                imageName = "traefik:v3.0";
                 containerName = "dokploy-traefik";
                 basePorts = [
                     {
                         TargetPort: 443,
                         PublishedPort: TRAEFIK_SSL_PORT,
-                        PublishMode: "host",
+                        PublishMode: "host"
                     },
                     {
                         TargetPort: 80,
                         PublishedPort: TRAEFIK_PORT,
-                        PublishMode: "host",
+                        PublishMode: "host"
                     },
                     {
                         TargetPort: 8080,
                         PublishedPort: 8080,
-                        PublishMode: "host",
+                        PublishMode: "host"
                     },
                 ];
                 additionalPorts = loadAdditionalPorts();
@@ -120,33 +120,33 @@ var initializeTraefik = function () { return __awaiter(void 0, void 0, void 0, f
                                 {
                                     Type: "bind",
                                     Source: path.resolve("".concat(exports.MAIN_TRAEFIK_PATH, "/traefik.yml")),
-                                    Target: "/etc/traefik/traefik.yml",
+                                    Target: "/etc/traefik/traefik.yml"
                                 },
                                 {
                                     Type: "bind",
                                     Source: path.resolve(exports.DYNAMIC_TRAEFIK_PATH),
-                                    Target: "/etc/dokploy/traefik/dynamic",
+                                    Target: "/etc/dokploy/traefik/dynamic"
                                 },
                                 {
                                     Type: "bind",
                                     Source: "/var/run/docker.sock",
-                                    Target: "/var/run/docker.sock",
+                                    Target: "/var/run/docker.sock"
                                 },
-                            ],
+                            ]
                         },
                         Networks: [{ Target: "dokploy-network" }],
                         Placement: {
-                            Constraints: ["node.role==manager"],
-                        },
+                            Constraints: ["node.role==manager"]
+                        }
                     },
                     Mode: {
                         Replicated: {
-                            Replicas: 1,
-                        },
+                            Replicas: 1
+                        }
                     },
                     EndpointSpec: {
-                        Ports: __spreadArray(__spreadArray([], basePorts, true), additionalPorts, true),
-                    },
+                        Ports: __spreadArray(__spreadArray([], basePorts, true), additionalPorts, true)
+                    }
                 };
                 _a.label = 1;
             case 1:
@@ -178,4 +178,4 @@ var initializeTraefik = function () { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.initializeTraefik = initializeTraefik;
-(0, exports.initializeTraefik)().catch(console.error);
+(0, exports.initializeTraefik)()["catch"](console.error);
