@@ -58,7 +58,9 @@ Then you can use them in your Traefik labels on your services.
 ...
 labels:
       - "traefik.enable=true"
-      - "traefik.tcp.routers.${UNIQUE_NAME}.entrypoints=postgres"
-      - "traefik.tcp.routers.${UNIQUE_NAME}.rule=HostSNI(`pg-${UNIQUE_NAME}.eu.insaen.dev`)"
-...
+      - "traefik.tcp.routers.postgres-${UNIQUE_NAME}.entrypoints=postgres"
+      - "traefik.tcp.routers.postgres-${UNIQUE_NAME}.rule=HostSNI(`pg-${UNIQUE_NAME}.the-data.xyz`)"
+      - "traefik.tcp.services.postgres-${UNIQUE_NAME}.loadbalancer.server.port=5432"
+      - "traefik.tcp.routers.postgres-${UNIQUE_NAME}.tls=true"
+      - "traefik.tcp.routers.postgres-${UNIQUE_NAME}.tls.certresolver=letsencrypt"
 ```
