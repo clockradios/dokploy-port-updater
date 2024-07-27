@@ -32,7 +32,7 @@ entryPoints:
     http:
       tls:
         certResolver: letsencrypt
-  postges:
+  postgres:
     address: ':5432'
   mongodb:
     address: ':27017'
