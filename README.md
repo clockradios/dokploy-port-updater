@@ -5,6 +5,7 @@ This script will update the exposed ports on the Traefik container created by Do
 ```sh
 git clone https://github.com/clockradios/dokploy-port-updater.git
 cd dokploy-port-updater
+npm i
 node update.js
 ```
 
@@ -31,7 +32,7 @@ entryPoints:
     http:
       tls:
         certResolver: letsencrypt
-  postges:
+  postgres:
     address: ':5432'
   mongodb:
     address: ':27017'
@@ -58,5 +59,6 @@ Then you can use them in your Traefik labels on your services.
 labels:
       - "traefik.enable=true"
       - "traefik.tcp.routers.${UNIQUE_NAME}.entrypoints=postgres"
+      - "traefik.tcp.routers.${UNIQUE_NAME}.rule=HostSNI(`pg-${UNIQUE_NAME}.eu.insaen.dev`)"
 ...
 ```
