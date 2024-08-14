@@ -10,13 +10,8 @@
         "PublishMode": "host"
     },
     {
-        "TargetPort": 8123,
-        "PublishedPort": 8123,
-        "PublishMode": "host"
-    },
-    {
-        "TargetPort": 1433,
-        "PublishedPort": 1433,
+        "TargetPort": 9440,
+        "PublishedPort": 9440,
         "PublishMode": "host"
     }
 ]
