@@ -36,10 +36,8 @@ entryPoints:
     address: ':5432'
   mongodb:
     address: ':27017'
-  mssql:
-    address: ':1433'
   clickhouse:
-    address: ':8123'
+    address: ':9440'
 api:
   insecure: true
 certificatesResolvers:
